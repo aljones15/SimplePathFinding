@@ -7,8 +7,8 @@ import Control.Monad.IO.Class
 
 main :: IO ()
 main = do
-  tiles <- constructTerrian rows columns
-  directions <- constructCompass rows columns
+  tiles <- insertRandomGoal rows columns
+  directions <- insertRandomPlayer rows columns
   runCurses $ do
     setEcho False
     w <- defaultWindow

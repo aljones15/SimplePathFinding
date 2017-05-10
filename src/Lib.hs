@@ -10,10 +10,13 @@ module Lib
       Cartogram,
       getRandomCompass,
       constructCompass,
+      insertRandomPlayer,
       TerrianType,
       Terrian,
       getRandomTerrian,
       constructTerrian,
+      insertRandomGoal,
+      initMap,
       drawShow,
       mapCursorText,
       drawTitle,
@@ -61,6 +64,13 @@ module Lib
   getRandomCompass 4 = W
   getRandomCompass _ = N
 
+  -- | 'insertRandomPlayer' inserts a random player into the Cartogram
+  insertRandomPlayer :: Int-> Int -> IO Cartogram
+  insertRandomPlayer n1 n2 = do
+    c <- constructCompass n1 n2
+    r <- roll $ (length c) - 1
+    return $ (take r c) ++ U : (drop r c)
+
   -- | 'constructCartogram' makes a list of random Compass points
   constructCompass :: Int -> Int -> IO Cartogram
   constructCompass n1 n2 = do
@@ -86,6 +96,20 @@ module Lib
      r <- replicateM (n1 * n2) (roll 3)
      return $ map getRandomTerrian r
 
+  -- | 'insertRandomGoal' inserts a Goal into the Terrian
+  insertRandomGoal :: Int-> Int -> IO Terrian
+  insertRandomGoal n1 n2 = do
+    c <- constructTerrian n1 n2
+    r <- roll $ (length c) - 1
+    return $ (take r c) ++ G : (drop r c)
+
+  -- | 'initMap' initials a Map with rows, cols, a glyph, and a construct func
+  initMap :: Int -> Int -> a -> (Int -> Int -> IO [a]) -> IO [a]
+  initMap row col glyph constructor = do
+    c <- constructor row col
+    r <- roll $ (length c) - 1
+    return $ (take r c) ++ glyph : (drop r c)
+
   -- | 'drawShow' turns anything that can be shown into an update
   drawShow :: Show a => a -> Update ()
   drawShow a = drawString $ show a ++ " "
@@ -106,7 +130,8 @@ module Lib
   drawTitle x y title = do
     moveCursor x y
     drawString title
- 
+  
+  -- | 'waitFor' watis for a q KeyStroke to quit 
   waitFor :: Window -> (Event -> Bool) -> Curses ()
   waitFor w p = loop where
     loop = do
