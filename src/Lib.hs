@@ -23,7 +23,7 @@ module Lib
       waitFor
     ) where
 
-  import UI.NCurses
+
   import Control.Monad
   import Control.Monad.IO.Class
   import System.Random 
