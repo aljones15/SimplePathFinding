@@ -7,3 +7,6 @@ extra-deps:
 - language-c-0.6.1
 - ncurses-0.2.16
 resolver: lts-8.13
+nix:
+  enable: true
+  packages: [glpk, pcre]
