@@ -5,5 +5,7 @@ nix-build PathFinder.nix
 if you get any dep failures just do cabal install
 ```
 ## ToDO
-- [ ] remove ncurses dep
-- [ ] implement open GL Instance
+- [ ] work on BreadthFirst
+- [ ] work on Djistrka
+- [ ] implement A* Star
+- [ ] try a nix-build on mac
