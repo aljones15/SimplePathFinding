@@ -3,5 +3,5 @@ let
 
 in
   {
-    project1 = pkgs.haskellPackages.callPackage ./default.nix { };
+    project1 = pkgs.haskellPackages.callPackage ./packages.nix { };
   }
