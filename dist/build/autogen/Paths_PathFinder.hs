@@ -1,6 +1,6 @@
 {-# LANGUAGE CPP #-}
+{-# LANGUAGE NoRebindableSyntax #-}
 {-# OPTIONS_GHC -fno-warn-missing-import-lists #-}
-{-# OPTIONS_GHC -fno-warn-implicit-prelude #-}
 module Paths_PathFinder (
     version,
     getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir,
@@ -30,7 +30,7 @@ version = Version [0,1,0,0] []
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "/home/liminal18/.cabal/bin"
-libdir     = "/home/liminal18/.cabal/lib/x86_64-linux-ghc-7.10.3/PathFinder-0.1.0.0-KiLviE3ARAV3q8oVhM5ZhJ"
+libdir     = "/home/liminal18/.cabal/lib/x86_64-linux-ghc-7.10.3/PathFinder-0.1.0.0-IP5SKs1v6aOK1zYyqC8r8j"
 dynlibdir  = "/home/liminal18/.cabal/lib/x86_64-linux-ghc-7.10.3"
 datadir    = "/home/liminal18/.cabal/share/x86_64-linux-ghc-7.10.3/PathFinder-0.1.0.0"
 libexecdir = "/home/liminal18/.cabal/libexec/x86_64-linux-ghc-7.10.3/PathFinder-0.1.0.0"

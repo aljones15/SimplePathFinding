@@ -6,7 +6,7 @@ mkDerivation {
   isLibrary = true;
   isExecutable = true;
   libraryHaskellDepends = [ base happy alex c2hs ncurses random ];
-  executableHaskellDepends = [ base ncurses ];
+  executableHaskellDepends = [ base ncurses c2hs alex ];
   testHaskellDepends = [ base ];
   homepage = "https://github.com/githubuser/PathFinder#readme";
   license = stdenv.lib.licenses.bsd3;
